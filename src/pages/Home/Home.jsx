@@ -51,35 +51,35 @@ export default function Home() {
                   </datalist>
           <button
             type="submit"
-            className="bg-[#7927ff] text-white text-base py-1 md:px-7.5 rounded-[5px] cursor-pointer"
+            className="bg-[#7927ff] text-white text-base py-0.5 md:py-1 px-2 md:px-7.5 rounded-[5px] cursor-pointer"
           >
             Search
           </button>
         </form>
       </div>
       <div className="max-w-[800px] mx-auto rounded-[15px] bg-[linear-gradient(rgba(84,3,255,0.15),rgba(105,2,153,0.15))] ">
-        <div className="grid grid-cols-[0.5fr_3fr_1fr_1fr] md:grid-cols-[0.5fr_2fr_1fr_1fr_1.5fr] py-3.75 px-4 items-center border-b border-b-[#3c3c3c]">
-          <p>#</p>
-          <p>Coins</p>
-          <p>Price</p>
-          <p className="text-center">24H Change</p>
-          <p className="hidden md:block md:text-right ">Market Cap</p>
+        <div className="grid grid-cols-[0.5fr_2fr_1fr_1fr] md:grid-cols-[0.5fr_2fr_1fr_1fr_1.5fr] py-3.75 px-4 items-center border-b border-b-[#3c3c3c]">
+          <p className="text-sm md:text-base">#</p>
+          <p className="text-sm md:text-base">Coins</p>
+          <p className="text-sm md:text-base">Price</p>
+          <p className="text-center text-sm md:text-base">24H Change</p>
+          <p className="hidden md:block md:text-right text-sm md:text-base">Market Cap</p>
         </div>
         {(displayCoin || []).slice(0, 10).map((item, index) => (
           <Link to={`/coin/${item.id}`}
             key={index}
-            className="grid grid-cols-[0.5fr_3fr_1fr_1fr] md:grid-cols-[0.5fr_2fr_1fr_1fr_1.5fr] py-3.75 px-4 items-center border-b border-b-[#3c3c3c] last:border-b-0"
+            className="grid grid-cols-[0.5fr_2fr_1fr_1fr] md:grid-cols-[0.5fr_2fr_1fr_1fr_1.5fr] py-3.75 px-4 items-center border-b border-b-[#3c3c3c] last:border-b-0"
           >
-            <p>{item.market_cap_rank}</p>
+            <p className="text-sm md:text-base">{item.market_cap_rank}</p>
             <div className="flex items-center gap-1">
-              <img src={item.image} alt="" className="w-4 h-4" />
-              <p>{item.name + "-" + item.symbol}</p>
+              <img src={item.image} alt="" className="w-2.5 h-2.5 md:w-4 md:h-4" />
+              <p className="text-sm md:text-base">{item.name + "-" + item.symbol}</p>
             </div>
-            <p>
+            <p className="text-sm md:text-base">
               {currency.symbol} {item.current_price.toLocaleString()}
             </p>
             <p
-              className={`text-center ${
+              className={`text-center text-sm md:text-base ${
                 item.price_change_percentage_24h < 0
                   ? "text-red-500"
                   : "text-white"
@@ -87,7 +87,7 @@ export default function Home() {
             >
               {Math.floor(item.price_change_percentage_24h * 100) / 100}
             </p>
-            <p className="hidden md:block md:text-right">
+            <p className="hidden md:block md:text-right text-sm md:text-base">
               {currency.symbol}
               {item.market_cap.toLocaleString()}
             </p>

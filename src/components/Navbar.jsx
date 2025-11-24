@@ -31,8 +31,8 @@ export default function Navbar() {
       }
     }
   return (
-    <section>
-          <div className="flex items-center justify-between px-[4%] mid:px-[10%]  mid:py-5 border-b-2 border-b-[#3c3c3c]">
+    <section className="pt-2">
+          <div className="flex items-center justify-between px-[4%] mid:px-[10%] py-3 mid:py-5 border-b-2 border-b-[#3c3c3c]">
       <Link to="/"> <img src="/logo.png" alt="" className="w-32 md:w-50 "/></Link> 
         <ul className="hidden md:flex gap-10 ">
         <Link to="/"><li className="cursor-pointer">Home</li></Link>  
